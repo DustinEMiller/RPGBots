@@ -1,0 +1,5 @@
+Which button do you want to push?
+*   Push the purple one #E.PurplePushed
+*   Push the blue one #E.BluePushed
+*   Push the green one -->END #E.OpenGreenDoor
+
