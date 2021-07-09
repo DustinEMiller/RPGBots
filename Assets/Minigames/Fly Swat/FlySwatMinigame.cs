@@ -11,11 +11,15 @@ public class FlySwatMinigame : MonoBehaviour
     
     private Action<MinigameResult> _completeInspection;
     
-    void Awake() => Instance = this;
-    
+    void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         gameObject.SetActive(false);
+        
         if(transform.parent == null) {
             StartMinigame(_defaultSettings, (result) => Debug.Log(result));
         }
@@ -37,10 +41,12 @@ public class FlySwatMinigame : MonoBehaviour
         _completeInspection?.Invoke(MinigameResult.Won);
         _completeInspection = null;
         gameObject.SetActive(false);
+        Debug.Log("won");
     }
 
     public void Lose()
     {
+        Debug.Log("Lose");
         _completeInspection?.Invoke(MinigameResult.Lost);
         _completeInspection = null;
         gameObject.SetActive(false);

@@ -26,5 +26,11 @@ public class MinigameManager : MonoBehaviour
             FlippyBoxMinigame.Instance.StartMinigame(flippyBoxMingameSettings,completeInspection);
         else if(settings is WinLoseMinigameSettings winLoseMingameSettings) 
             WinLoseMinigamePanel.Instance.StartMinigame(winLoseMingameSettings, completeInspection);
+        else if(settings is FlySwatMinigameSettings flySwatMinigameSettings) 
+            FlySwatMinigame.
+                Instance.
+                StartMinigame(
+                    flySwatMinigameSettings, 
+                    completeInspection);
     }
 }
