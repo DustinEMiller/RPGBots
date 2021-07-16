@@ -41,12 +41,10 @@ public class FlySwatMinigame : MonoBehaviour
         _completeInspection?.Invoke(MinigameResult.Won);
         _completeInspection = null;
         gameObject.SetActive(false);
-        Debug.Log("won");
     }
 
     public void Lose()
     {
-        Debug.Log("Lose");
         _completeInspection?.Invoke(MinigameResult.Lost);
         _completeInspection = null;
         gameObject.SetActive(false);

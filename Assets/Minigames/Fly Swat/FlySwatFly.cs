@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,12 +7,15 @@ public class FlySwatFly : MonoBehaviour
     [SerializeField] Rigidbody2D _rigidbody;
     [SerializeField] float speed = 20.0f;
     [SerializeField] float rotateSpeed = 15.0f;
-
+    
+    bool _dead;
     static Bounds _bounds;
     Vector3 newPosition;
     void Start ()
     {
+        _dead = false;
         PositionChange();
+        _rigidbody.bodyType = RigidbodyType2D.Kinematic;
     }
 
     public void Die()
@@ -23,6 +23,7 @@ public class FlySwatFly : MonoBehaviour
         _rigidbody.bodyType = RigidbodyType2D.Dynamic;
         _rigidbody.simulated = true;
         _rigidbody.gravityScale = 2;
+        _dead = true;
     }
 
     void PositionChange()
@@ -36,11 +37,14 @@ public class FlySwatFly : MonoBehaviour
    
     void Update ()
     {
-        if(Vector2.Distance(transform.localPosition, newPosition) < 1)
-            PositionChange();
+        if (!_dead)
+        {
+            if(Vector2.Distance(transform.localPosition, newPosition) < 1)
+                PositionChange();
  
-        transform.localPosition = Vector3.Lerp(transform.localPosition,newPosition,Time.deltaTime/speed);
- 
+            transform.localPosition = Vector3.Lerp(transform.localPosition,newPosition,Time.deltaTime/speed);
+        }
+
         LookAt2D(newPosition);
     }
  

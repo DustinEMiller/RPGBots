@@ -130,6 +130,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2047177792, guid: 279305dfad625814a8417edd2833be92, type: 3}
+      propertyPath: m_Size.x
+      value: 0.13790894
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047177792, guid: 279305dfad625814a8417edd2833be92, type: 3}
+      propertyPath: m_Size.y
+      value: 0.13711548
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047177792, guid: 279305dfad625814a8417edd2833be92, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.00018978119
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047177792, guid: 279305dfad625814a8417edd2833be92, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.00016784668
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630321964586714630, guid: 279305dfad625814a8417edd2833be92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6630321966080857664, guid: 279305dfad625814a8417edd2833be92, type: 3}
       propertyPath: m_Name
       value: '[MINIGAME]FLY SWAT'

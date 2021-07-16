@@ -97,7 +97,15 @@ public class FlySwatManager : MonoBehaviour, IRestart
 
     void SpawnFly()
     {
-        var randomx = Random.Range(_bounds.size.x / 2 - _bounds.size.x, _bounds.size.x / 2);
+        System.Random rand = new System.Random();
+        double trueProbability = 0.2;
+        bool result = rand.NextDouble() < trueProbability;
+        
+        var randomx = _bounds.size.x / 2 - _bounds.size.x;
+        if (result)
+        {
+            randomx = _bounds.size.x / 2;
+        }
         var randomy = Random.Range(_bounds.size.y / 2 - _bounds.size.y, _bounds.size.y / 2);
         Vector3 position = new Vector3(randomx, randomy, 0);
 
