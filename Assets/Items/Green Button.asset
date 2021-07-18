@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4902c486e4d46754e96b4c7f1a965149, type: 3}
   m_Name: Green Button
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 5757633588284370657, guid: 85fbb655a9a89da40b8c27619bfb27c9, type: 3}
