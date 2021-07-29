@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -22,6 +20,18 @@ public class Inventory : MonoBehaviour
 
     [ContextMenu(nameof(AddDebugItem))]
     void AddDebugItem() => AddItem(_debugItem);
+
+    [ContextMenu(nameof(MoveItemsRight))]
+    void MoveItemsRight()
+    {
+        var lastItem = GeneralInventory.Last()._item;
+        for (int i = GENERAL_SIZE - 1; i > 0; i--)  
+        {
+            GeneralInventory[i].SetItem(GeneralInventory[i -1]._item);
+        }
+
+        GeneralInventory.First().SetItem(lastItem);
+    }
     
     
 
