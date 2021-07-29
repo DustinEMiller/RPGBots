@@ -16810,7 +16810,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67c5fc67da1e8649a9a3d0f144fe149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Items: []
+  GeneralSlots:
+  - _item: {fileID: 0}
+  - _item: {fileID: 0}
+  - _item: {fileID: 0}
+  - _item: {fileID: 0}
+  - _item: {fileID: 0}
+  - _item: {fileID: 0}
+  - _item: {fileID: 0}
+  - _item: {fileID: 0}
+  - _item: {fileID: 0}
   _debugItem: {fileID: 11400000, guid: 064c59bab945572479919b06caf7de22, type: 2}
 --- !u!4 &1060531133
 Transform:
@@ -20263,6 +20272,7 @@ MonoBehaviour:
   _gameData:
     GameFlagDatas: []
     InspectableDatas: []
+    SlotDatas: []
 --- !u!4 &1244787485
 Transform:
   m_ObjectHideFlags: 0
@@ -25056,10 +25066,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_ShowDebugText: 0
   m_Loop: 0
-  m_ChildCameras:
-  - {fileID: 281806573}
-  - {fileID: 1333801781}
-  - {fileID: 1619086961}
+  m_ChildCameras: []
   m_Instructions:
   - m_VirtualCamera: {fileID: 281806573}
     m_Hold: 1
