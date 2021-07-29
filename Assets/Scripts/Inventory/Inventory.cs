@@ -1,20 +1,23 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     private const int GENERAL_SIZE = 9;
-    public ItemSlot[] GeneralInventory = new ItemSlot[GENERAL_SIZE];
+    public ItemSlot[] GeneralSlots = new ItemSlot[GENERAL_SIZE];
     [SerializeField] private Item _debugItem;
+    public static Inventory Instance { get; private set; }
 
     void Awake()
     {
+        Instance = this;
         for (int i = 0; i < GENERAL_SIZE; i++)
-            GeneralInventory[i] = new ItemSlot();
+            GeneralSlots[i] = new ItemSlot();
     }
     public void AddItem(Item item)
     {
-        var firstAvailableSlot = GeneralInventory.FirstOrDefault(t=> t.IsEmpty);
+        var firstAvailableSlot = GeneralSlots.FirstOrDefault(t=> t.IsEmpty);
         firstAvailableSlot.SetItem(item);
     }
 
@@ -24,15 +27,32 @@ public class Inventory : MonoBehaviour
     [ContextMenu(nameof(MoveItemsRight))]
     void MoveItemsRight()
     {
-        var lastItem = GeneralInventory.Last()._item;
+        var lastItem = GeneralSlots.Last()._item;
         for (int i = GENERAL_SIZE - 1; i > 0; i--)  
         {
-            GeneralInventory[i].SetItem(GeneralInventory[i -1]._item);
+            GeneralSlots[i].SetItem(GeneralSlots[i -1]._item);
         }
 
-        GeneralInventory.First().SetItem(lastItem);
+        GeneralSlots.First().SetItem(lastItem);
     }
-    
-    
 
+
+    public void Bind(List<SlotData> slotDatas)
+    {
+        for (var i = 0; i < GeneralSlots.Length; i++)
+        {
+            var slot = GeneralSlots[i];
+            var slotData = slotDatas.FirstOrDefault(t => t.SlotName == "General" + i);
+            if (slotData == null)
+            {
+                slotData = new SlotData()
+                {
+                    SlotName = "General" + i
+                };
+                slotDatas.Add(slotData);
+            }
+
+            slot.Bind(slotData);
+        }
+    }
 }
